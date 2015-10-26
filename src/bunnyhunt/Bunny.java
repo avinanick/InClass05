@@ -21,10 +21,16 @@ public class Bunny extends Animal {
         //Look around for the wolf
         for(int i = Model.MIN_DIRECTION; i <= Model.MAX_DIRECTION; i++) {
             if (look(i) == Model.WOLF) {
-                canSeeWolfNow = hasSeenWolf = true;
-                directionToWolf = i;
-                distanceToWolf = distance(i);
+                this.canSeeWolfNow = this.hasSeenWolf = true;
+                this.directionToWolf = i;
+                this.distanceToWolf = distance(i);
             }
+        }
+        
+        //If the wolf was seen, move out of its line of site
+        //The preferred directions away will be direction to wolf + 4 +or- 1
+        if(this.canSeeWolfNow) {
+            
         }
         return random(Model.MIN_DIRECTION, Model.MAX_DIRECTION);
     }
